@@ -1,0 +1,36 @@
+<% include partials/header %>
+
+	<h2>Profile</h2>     
+
+	<% if (errors.length) { %>  
+		<div class="alert alert-danger">
+			<ul>
+			<% for (var e of errors) { %>
+				<li><%= e.msg %></li>
+			<% }%>
+			</ul>
+		</div>	
+	<% } %>
+
+	<form action="/profile" method="post">
+		<div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="<%= user.name %>">
+    </div>
+		<div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="<%= user.email %>">
+    </div>
+		<div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" value="<%= user.username %>" disabled >
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>    
+    <button type="submit" class="btn btn-default">Save</button>
+
+	</form>      
+	
+<% include partials/footer %>

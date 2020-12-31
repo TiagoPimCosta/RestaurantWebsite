@@ -1,0 +1,25 @@
+<% include partials/header %>
+	<h2>Users List</h2>        
+	<div class="table-responsive">          
+		<table class="table">
+			<thead>
+				<tr>   
+					<th>Username</th> 
+					<th>Name</th>     					
+					<th>Email</th>					   
+				</tr>
+			</thead>
+			<tbody>
+		<% for (var u of data) { %>       
+				<tr>
+					<td><a href="/users/<%= u.username %>"><%= u.username %></a></td>
+					<td><%= u.name %></td>
+					<td><%= u.email %></td>
+				</tr>
+		<%} %>      
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-default" onclick="window.open('/users/create')">New User</button>
+	</div> 
+
+<% include partials/footer %>
